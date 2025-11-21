@@ -30,13 +30,35 @@ window.onclick = function(event) {
 
 // Form submission handler
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('tributeForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
+    const tributeForm = document.getElementById('tributeForm');
+    if (tributeForm) {
+        tributeForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your birthday tribute! Your message has been received.');
             closeTributeForm();
-            form.reset();
+            tributeForm.reset();
+        });
+    }
+
+    // Registration form handler
+    const registrationForm = document.getElementById('registrationForm');
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(registrationForm);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send this to your backend/API
+            // For now, we'll show a success message
+            alert('🎉 Registration Successful!\n\nThank you for registering for the Birthday Celebration & Wealth Conference. You will receive a confirmation email shortly with event details.\n\nWe look forward to seeing you there!');
+            
+            // Reset form
+            registrationForm.reset();
+            
+            // Scroll to top of registration section
+            scrollToSection('register');
         });
     }
     
@@ -55,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe all cards and content sections
-    document.querySelectorAll('.tribute-card, .timeline-item, .quote-card, .wish-card').forEach(el => {
+    document.querySelectorAll('.tribute-card, .timeline-item, .quote-card, .wish-card, .speaker-card').forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });

@@ -32,8 +32,7 @@
                     and beyond to build wealth, own properties, and break free from financial limitations. His life is
                     proof that with the right mindset, mentorship, and courage, anyone can rewrite their story.</p>
                 <div class="hero-cta">
-                    <button class="btn btn-primary" onclick="scrollToSection('celebration')">Join the Global
-                        Celebration</button>
+                    <button class="btn btn-primary" onclick="scrollToSection('register')">Register for Free</button>
                     <button class="btn btn-secondary" onclick="scrollToSection('wishes')">Send a Birthday
                         Tribute</button>
                 </div>
@@ -338,25 +337,206 @@
         </div>
     </section>
 
+    <!-- Registration & Conference Section -->
+    <section class="registration-section" id="register">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Register for the Event</h2>
+                <p class="section-subtitle">BIRTHDAY CELEBRATION & WEALTH CONFERENCE</p>
+            </div>
+            <p class="intro-text center">Join us for an extraordinary celebration combining Dr. Stephen Akintayo's birthday with an empowering wealth conference. This exclusive event features world-class speakers, transformative insights, and networking opportunities. <strong>Registration is completely FREE!</strong></p>
+
+            <div class="registration-content">
+                <div class="registration-form-container">
+                    <div class="form-header">
+                        <h3>Secure Your Spot</h3>
+                        <p>Fill out the form below to register for this free event</p>
+                    </div>
+                    <form id="registrationForm" class="registration-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1234567890" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Your company or organization (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">What interests you most? *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="real-estate">Real Estate Investment</option>
+                                <option value="wealth-building">Wealth Building Strategies</option>
+                                <option value="business-growth">Business Growth & Development</option>
+                                <option value="networking">Networking Opportunities</option>
+                                <option value="all">All of the Above</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Any Questions or Special Requests?</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Let us know if you have any questions or special requirements..."></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" checked>
+                                <span>I would like to receive updates about the event and future opportunities</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large">Register Now - It's FREE!</button>
+                        <p class="form-note">* Required fields. Your information will be kept confidential.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="speakers-section" id="speakers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Speakers</h2>
+                <p class="section-subtitle">WORLD-CLASS EXPERTS & VISIONARIES</p>
+            </div>
+            <p class="intro-text center">Learn from industry leaders, successful entrepreneurs, and wealth experts who will share their insights, strategies, and success stories at this exclusive conference.</p>
+
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Speaker 1">
+                        <div class="speaker-overlay">
+                            <div class="speaker-social">
+                                <a href="#" aria-label="LinkedIn">in</a>
+                                <a href="#" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Dr. Stephen Akintayo</h3>
+                        <p class="speaker-title">Host & Keynote Speaker</p>
+                        <p class="speaker-bio">Real Estate Mogul, Wealth Coach & Global Business Leader</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Speaker 2">
+                        <div class="speaker-overlay">
+                            <div class="speaker-social">
+                                <a href="#" aria-label="LinkedIn">in</a>
+                                <a href="#" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Sarah Mitchell</h3>
+                        <p class="speaker-title">Investment Strategist</p>
+                        <p class="speaker-bio">Expert in Global Real Estate Markets & Portfolio Management</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" alt="Speaker 3">
+                        <div class="speaker-overlay">
+                            <div class="speaker-social">
+                                <a href="#" aria-label="LinkedIn">in</a>
+                                <a href="#" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Michael Chen</h3>
+                        <p class="speaker-title">Business Growth Expert</p>
+                        <p class="speaker-bio">Serial Entrepreneur & International Business Consultant</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Speaker 4">
+                        <div class="speaker-overlay">
+                            <div class="speaker-social">
+                                <a href="#" aria-label="LinkedIn">in</a>
+                                <a href="#" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Dr. Aisha Williams</h3>
+                        <p class="speaker-title">Financial Advisor</p>
+                        <p class="speaker-bio">Wealth Management Expert & Financial Freedom Advocate</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Speaker 5">
+                        <div class="speaker-overlay">
+                            <div class="speaker-social">
+                                <a href="#" aria-label="LinkedIn">in</a>
+                                <a href="#" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>James Anderson</h3>
+                        <p class="speaker-title">Real Estate Developer</p>
+                        <p class="speaker-bio">International Property Developer & Investment Advisor</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <div class="speaker-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Speaker 6">
+                        <div class="speaker-overlay">
+                            <div class="speaker-social">
+                                <a href="#" aria-label="LinkedIn">in</a>
+                                <a href="#" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="speaker-info">
+                        <h3>Emma Thompson</h3>
+                        <p class="speaker-title">Success Coach</p>
+                        <p class="speaker-bio">Life & Business Transformation Coach & Motivational Speaker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="celebration">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Join the Celebration</h2>
+                <p class="section-subtitle">A BIRTHDAY PARTY & WEALTH CONFERENCE</p>
             </div>
             <div class="cta-content">
                 <p class="body-text">This birthday is more than a ceremony; it is a call to action. Dr. Stephen's life
                     teaches us that impact is intentional, success is structured, and destiny is delivered by
                     discipline. As we celebrate him today, we invite you to:</p>
                 <ul class="cta-list">
-                    <li>Send a heartfelt birthday tribute.</li>
-                    <li>Share your transformation story.</li>
-                    <li>Partner with ongoing projects in real estate, education and empowerment.</li>
-                    <li>Commit to levelling up your own life, business and financial future.</li>
+                    <li>Register for the free birthday celebration & wealth conference</li>
+                    <li>Learn from world-class speakers and industry experts</li>
+                    <li>Network with like-minded entrepreneurs and investors</li>
+                    <li>Send a heartfelt birthday tribute</li>
+                    <li>Partner with ongoing projects in real estate, education and empowerment</li>
                 </ul>
                 <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="openTributeForm()">Send a Birthday Tribute</button>
-                    <button class="btn btn-secondary" onclick="openPartnerForm()">Partner or Support a Project</button>
+                    <button class="btn btn-primary" onclick="scrollToSection('register')">Register for Free</button>
+                    <button class="btn btn-secondary" onclick="openTributeForm()">Send a Birthday Tribute</button>
                 </div>
                 <p class="micro-text">Your voice, your story, and your support are part of this legacy.</p>
             </div>
