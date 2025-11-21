@@ -599,25 +599,24 @@ section:nth-child(even) {
 
 .quotes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
 }
 
 .quote-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: var(--spacing-xl);
-    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: var(--spacing-md);
+    backdrop-filter: blur(10px);
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
-    min-height: 200px;
-    justify-content: center;
+    justify-content: flex-start;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease forwards;
@@ -648,7 +647,7 @@ section:nth-child(even) {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 3px;
     height: 100%;
     background: var(--gradient-accent);
     opacity: 0;
@@ -656,72 +655,53 @@ section:nth-child(even) {
 }
 
 .quote-card:hover::before {
-    opacity: 1;
-}
-
-.quote-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-    pointer-events: none;
-}
-
-.quote-card:hover::after {
-    opacity: 1;
+    opacity: 0.6;
 }
 
 .quote-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-xl), var(--glow-accent);
-    border-color: var(--color-accent);
-    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .quote-mark {
-    font-size: 6rem;
-    line-height: 0.8;
+    font-size: 3rem;
+    line-height: 0.7;
     background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-family: var(--font-display);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
     font-weight: 700;
-    opacity: 0.4;
+    opacity: 0.3;
     position: relative;
     z-index: 0;
-    transition: all var(--transition-normal);
+    transition: opacity var(--transition-normal);
     display: block;
 }
 
 .quote-card:hover .quote-mark {
-    opacity: 0.6;
-    transform: scale(1.1);
+    opacity: 0.5;
 }
 
 .quote-text {
-    font-size: 1.25rem;
-    font-family: var(--font-display);
-    color: var(--color-text-primary);
-    line-height: 1.8;
-    font-weight: 500;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-weight: 400;
     position: relative;
     z-index: 1;
     margin: 0;
     font-style: italic;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     transition: color var(--transition-normal);
 }
 
 .quote-card:hover .quote-text {
     color: var(--color-text-primary);
-    text-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
 }
 
 /* Wishes Section */
@@ -1529,23 +1509,22 @@ section:nth-child(even) {
     /* Quotes Section */
     .quotes-grid {
         grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-        margin-top: var(--spacing-lg);
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-md);
     }
 
     .quote-card {
-        padding: var(--spacing-md);
-        min-height: auto;
+        padding: var(--spacing-sm);
     }
 
     .quote-mark {
-        font-size: 4rem;
+        font-size: 2.5rem;
         margin-bottom: var(--spacing-xs);
     }
 
     .quote-text {
-        font-size: 1rem;
-        line-height: 1.7;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     /* Wishes Section */
@@ -1784,11 +1763,11 @@ section:nth-child(even) {
     }
 
     .quote-mark {
-        font-size: 3.5rem;
+        font-size: 2rem;
     }
 
     .quote-text {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .showcase-image {
