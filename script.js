@@ -40,27 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Registration form handler
-    const registrationForm = document.getElementById('registrationForm');
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(registrationForm);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send this to your backend/API
-            // For now, we'll show a success message
-            alert('🎉 Registration Successful!\n\nThank you for registering for the Birthday Celebration & Wealth Conference. You will receive a confirmation email shortly with event details.\n\nWe look forward to seeing you there!');
-            
-            // Reset form
-            registrationForm.reset();
-            
-            // Scroll to top of registration section
-            scrollToSection('register');
-        });
-    }
+    // Registration form is now handled by MailingBoss directly via form action
     
     // Scroll animations
     const observerOptions = {
