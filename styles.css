@@ -320,6 +320,7 @@ h6 {
     font-size: 0.9rem;
     color: var(--color-text-muted);
     font-style: italic;
+    margin-bottom: 4rem;
     animation: fadeInUp 1.6s ease;
 }
 
@@ -1483,6 +1484,7 @@ section:nth-child(even) {
 
     .hero-micro {
         font-size: 0.85rem;
+        margin-bottom: 3rem;
     }
 
     .scroll-indicator {
