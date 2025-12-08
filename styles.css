@@ -493,6 +493,24 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.speaker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.speaker-image .speaker-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .speaker-info h3 {
