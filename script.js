@@ -30,6 +30,24 @@ function closeTributeForm() {
     document.getElementById('tributeModal').style.display = 'none';
 }
 
+function openRegistrationForm() {
+    const modal = document.getElementById('registrationModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closeRegistrationForm() {
+    const modal = document.getElementById('registrationModal');
+    if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
 function openPartnerForm() {
     // This can be linked to a real form or CRM
     alert('Thank you for your interest in partnering! Please contact us at partnerships@example.com');
@@ -37,9 +55,15 @@ function openPartnerForm() {
 
 // Close modal when clicking outside
 window.onclick = function(event) {
-    const modal = document.getElementById('tributeModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
+    const tributeModal = document.getElementById('tributeModal');
+    const registrationModal = document.getElementById('registrationModal');
+    
+    if (event.target === tributeModal) {
+        tributeModal.style.display = 'none';
+    }
+    
+    if (event.target === registrationModal) {
+        closeRegistrationForm();
     }
 }
 
@@ -120,7 +144,88 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Registration form is now handled by MailingBoss directly via form action
+    // Registration form handler
+    const registrationForm = document.getElementById('registrationForm');
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate interests checkboxes
+            const interests = document.querySelectorAll('input[name="interests"]:checked');
+            if (interests.length === 0) {
+                alert('Please select at least one interest.');
+                return;
+            }
+            
+            // Collect interests into a comma-separated string
+            const interestsArray = Array.from(interests).map(cb => cb.value);
+            const interestsValue = interestsArray.join(', ');
+            
+            // Remove all checkbox inputs temporarily to avoid duplicate submission
+            const checkboxes = document.querySelectorAll('input[name="interests"][type="checkbox"]');
+            checkboxes.forEach(cb => {
+                cb.disabled = true;
+            });
+            
+            // Create a hidden input for interests
+            let interestsInput = document.querySelector('input[name="interests"][type="hidden"]');
+            if (interestsInput) {
+                interestsInput.remove();
+            }
+            
+            interestsInput = document.createElement('input');
+            interestsInput.type = 'hidden';
+            interestsInput.name = 'interests';
+            interestsInput.value = interestsValue;
+            registrationForm.appendChild(interestsInput);
+            
+            // Show loading state
+            const submitButton = registrationForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            
+            // Submit form to Formspree
+            const formData = new FormData(registrationForm);
+            
+            fetch('https://formspree.io/f/mwpgnjaj', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you for your registration! We will be in touch soon.');
+                    registrationForm.reset();
+                    closeRegistrationForm();
+                } else {
+                    return response.json().then(data => {
+                        if (data.errors) {
+                            alert('There was an error submitting the form. Please try again.');
+                        } else {
+                            alert('Thank you for your registration!');
+                            registrationForm.reset();
+                            closeRegistrationForm();
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again later.');
+            })
+            .finally(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                // Re-enable checkboxes
+                checkboxes.forEach(cb => {
+                    cb.disabled = false;
+                });
+            });
+        });
+    }
     
     // Scroll animations
     const observerOptions = {
@@ -187,5 +292,6 @@ function createSparkle(element) {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeTributeForm();
+        closeRegistrationForm();
     }
 });

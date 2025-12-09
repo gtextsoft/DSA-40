@@ -34,7 +34,7 @@
                 <li><a href="#schedule" class="nav-link">Schedule</a></li>
                 <li><a href="#tribute" class="nav-link">Tribute</a></li>
                 <li><a href="#guests" class="nav-link">Guests</a></li>
-                <li><a href="#praise-session" class="nav-link nav-cta">Praise Session Ticket</a></li>
+                <li><button class="nav-link nav-cta" onclick="openRegistrationForm()" style="background: none; border: none; cursor: pointer; font-family: inherit; font-size: inherit;">Praise Session Ticket</button></li>
             </ul>
         </div>
     </nav>
@@ -50,7 +50,7 @@
                 learning, and giving back. Join us for world-class speakers, spiritual praise sessions, exclusive
                 networking opportunities, and meaningful charitable initiatives.</p>
             <div class="hero-buttons">
-                <a href="#praise-session" class="btn btn-primary">Get Praise Session Ticket</a>
+                <button class="btn btn-primary" onclick="openRegistrationForm()">Get Praise Session Ticket</button>
                 <button class="btn btn-secondary" onclick="scrollToSection('schedule')">View Event Schedule</button>
             </div>
         </div>
@@ -157,7 +157,7 @@
                             will feature inspirational ministrations and a time for reflection, setting the tone for the
                             days ahead.</p>
                         <div class="timeline-cta">
-                            <a class="btn btn-primary" href="https://preview.mailerlite.io/forms/1684141/173211045407491087/share" target="_blank" rel="noopener noreferrer">Get Praise Session Ticket</a>
+                            <button class="btn btn-primary" onclick="openRegistrationForm()">Get Praise Session Ticket</button>
                         </div>
                     </div>
                 </div>
@@ -601,8 +601,7 @@
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <a href="https://preview.mailerlite.io/forms/1684141/173211045407491087/share" target="_blank"
-                        rel="noopener noreferrer" class="btn btn-primary">Register Now</a>
+                    <button class="btn btn-primary" onclick="openRegistrationForm()">Register Now</button>
                     <button class="btn btn-secondary" onclick="scrollToSection('schedule')">View Schedule</button>
                 </div>
                 <p class="cta-footer-note">Stay updated on event announcements, registrations, and charitable
@@ -632,6 +631,114 @@
         </div>
     </footer>
 
+
+    <!-- Registration Form Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeRegistrationForm()">&times;</span>
+            <div class="form-header">
+                <h3>Registration Form</h3>
+                <p>Please fill out the form below to register for the event</p>
+            </div>
+            <form id="registrationForm" action="https://formspree.io/f/mwpgnjaj" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country <span class="required">*</span></label>
+                        <input type="text" id="country" name="country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City of Residence</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                
+                <div class="form-group">
+                    <label for="occupation">What do you do?</label>
+                    <input type="text" id="occupation" name="occupation" placeholder="Your profession or occupation">
+                </div>
+                
+                <div class="form-group">
+                    <label for="relationship">What's your relationship with the celebrant? <span class="required">*</span></label>
+                    <select id="relationship" name="relationship" required>
+                        <option value="">Please select...</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Family Member">Family Member</option>
+                        <option value="Business Partner">Business Partner</option>
+                        <option value="Mentee">Mentee</option>
+                        <option value="Client">Client</option>
+                        <option value="Colleague">Colleague</option>
+                        <option value="Acquaintance">Acquaintance</option>
+                        <option value="Admirer">Admirer</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>What interests you most? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Real Estate Investment">
+                            <span>Real Estate Investment</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Wealth Building Strategies">
+                            <span>Wealth Building Strategies</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Business Growth & Development">
+                            <span>Business Growth & Development</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Networking Opportunities">
+                            <span>Networking Opportunities</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="questions">Any Questions or Special Requests</label>
+                    <textarea id="questions" name="questions" rows="4" placeholder="Please share any questions or special requests..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Registration</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeRegistrationForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
