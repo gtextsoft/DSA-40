@@ -45,10 +45,42 @@
     <section class="hero" id="home">
         <div class="hero-background"></div>
         <div class="hero-overlay"></div>
+        <div class="balloons-container">
+            <div class="balloon" style="left: 10%;"></div>
+            <div class="balloon" style="left: 30%;"></div>
+            <div class="balloon" style="left: 50%;"></div>
+            <div class="balloon" style="left: 70%;"></div>
+            <div class="balloon" style="left: 90%;"></div>
+            <div class="balloon" style="left: 20%;"></div>
+            <div class="balloon" style="left: 40%;"></div>
+            <div class="balloon" style="left: 60%;"></div>
+            <div class="balloon" style="left: 80%;"></div>
+        </div>
         <div class="container hero-content">
             <h1 class="hero-title">Celebrate Dr. Stephen Akintayo's Birthday 2026</h1>
             <p class="hero-subtitle">Join us as we celebrate the life, legacy, and vision of Dr. Stephen Akintayo.</p>
-            <p class="hero-body">This milestone event promises three unforgettable days of inspiration, worship,
+
+            <div class="countdown-container" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Secs</span>
+                </div>
+            </div>
+
+            <p class="hero-body" style="margin-top: 2rem;">This milestone event promises three unforgettable days of
+                inspiration, worship,
                 learning, and giving back. Join us for world-class speakers, spiritual praise sessions, exclusive
                 networking opportunities, and meaningful charitable initiatives.</p>
             <div class="hero-buttons">
@@ -169,7 +201,8 @@
                         <h3>31st January – Birthday Lecture & Conference</h3>
                         <p><strong>Registration: Opens at 8:00 AM</strong></p>
                         <p><strong>Conference & Lecture: 9:00 AM – 2:00 PM</strong></p>
-                        <p><strong>Location:</strong> Along the Lekki Free Trade Zone Road, near the Lekki Golf Resort</p>
+                        <p><strong>Location:</strong> Along the Lekki Free Trade Zone Road, near the Lekki Golf Resort
+                        </p>
                         <p>Join an empowering conference featuring a keynote birthday lecture by Dr. Stephen Akintayo.
                             Engage with thought leaders, learn strategies for success, and network with influential
                             guests.</p>
@@ -188,7 +221,8 @@
                             BJ Sax. This intimate celebration is strictly by invitation and offers a unique opportunity
                             to connect, celebrate, and enjoy an elegant evening.</p>
                         <div class="timeline-cta">
-                            <button class="btn btn-secondary" aria-disabled="true" style="cursor: not-allowed; opacity: 0.8;">Invite Only</button>
+                            <button class="btn btn-secondary" aria-disabled="true"
+                                style="cursor: not-allowed; opacity: 0.8;">Invite Only</button>
                         </div>
                     </div>
                 </div>
@@ -201,9 +235,11 @@
             .timeline-cta {
                 margin-top: 1rem;
             }
+
             .timeline-cta .btn {
                 min-width: 220px;
             }
+
             @media (max-width: 768px) {
                 .timeline-cta .btn {
                     width: 100%;
@@ -245,12 +281,14 @@
                 </div>
             </div>
 
-            <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+            <div class="cta-buttons"
+                style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
                 <a href="charity.html" class="btn btn-primary">Join Our Charity Initiatives</a>
                 <a href="charity.html" class="btn btn-secondary">Donate Now - Make a Difference</a>
             </div>
 
-            <p class="tribute-closing" style="margin-top: 2rem;">Together, we celebrate not just a birthday, but a legacy of service, generosity,
+            <p class="tribute-closing" style="margin-top: 2rem;">Together, we celebrate not just a birthday, but a
+                legacy of service, generosity,
                 and transformation.</p>
         </div>
     </section>
@@ -383,7 +421,7 @@
     </section>
 
     <!-- Registration & Conference Section -->
-    
+
 
     <!-- Reception Details Section -->
     <section class="cta-section" id="reception">
@@ -555,12 +593,16 @@
                 <div class="about-highlights" style="max-width: 800px; margin: 0 auto;">
                     <h3>Birthday Lecture & Conference Venue</h3>
                     <ul class="highlights-list">
-                        <li><strong>Address:</strong> Along the Lekki Free Trade Zone Road, near the Lekki Golf Resort</li>
-                        <li><strong>Landmarks:</strong> Near Lekki Golf Resort, between Lekki Port & La Champagne Tropicana</li>
+                        <li><strong>Address:</strong> Along the Lekki Free Trade Zone Road, near the Lekki Golf Resort
+                        </li>
+                        <li><strong>Landmarks:</strong> Near Lekki Golf Resort, between Lekki Port & La Champagne
+                            Tropicana</li>
                         <li><strong>Close to:</strong> Dangote Refinery area</li>
                     </ul>
                 </div>
-                <p class="body-text" style="margin-top: 2rem;">Detailed directions, parking information, and venue accessibility details will be provided upon registration. For the Praise Session venue, details will be shared with registered attendees.</p>
+                <p class="body-text" style="margin-top: 2rem;">Detailed directions, parking information, and venue
+                    accessibility details will be provided upon registration. For the Praise Session venue, details will
+                    be shared with registered attendees.</p>
             </div>
         </div>
     </section>
@@ -580,28 +622,32 @@
                     <div class="cta-feature">
                         <div class="cta-feature-icon">📚</div>
                         <div class="cta-feature-text">
-                            <h4><a href="birthday-lecture.html" style="color: inherit; text-decoration: none;">Birthday Lecture & Conference</a></h4>
+                            <h4><a href="birthday-lecture.html" style="color: inherit; text-decoration: none;">Birthday
+                                    Lecture & Conference</a></h4>
                             <p>Register for insightful sessions with industry leaders</p>
                         </div>
                     </div>
                     <div class="cta-feature">
                         <div class="cta-feature-icon">🙏</div>
                         <div class="cta-feature-text">
-                            <h4><a href="praise-session.html" style="color: inherit; text-decoration: none;">Praise & Worship Session</a></h4>
+                            <h4><a href="praise-session.html" style="color: inherit; text-decoration: none;">Praise &
+                                    Worship Session</a></h4>
                             <p>Join us for an evening of worship and thanksgiving</p>
                         </div>
                     </div>
                     <div class="cta-feature">
                         <div class="cta-feature-icon">❤️</div>
                         <div class="cta-feature-text">
-                            <h4><a href="charity.html" style="color: inherit; text-decoration: none;">Charity Initiatives</a></h4>
+                            <h4><a href="charity.html" style="color: inherit; text-decoration: none;">Charity
+                                    Initiatives</a></h4>
                             <p>Participate in initiatives supporting vulnerable communities</p>
                         </div>
                     </div>
                     <div class="cta-feature">
                         <div class="cta-feature-icon">🎓</div>
                         <div class="cta-feature-text">
-                            <h4><a href="mentorship.html" style="color: inherit; text-decoration: none;">Mentorship Sessions</a></h4>
+                            <h4><a href="mentorship.html" style="color: inherit; text-decoration: none;">Mentorship
+                                    Sessions</a></h4>
                             <p>Be mentored and transformed by Dr. Stephen Akintayo</p>
                         </div>
                     </div>
@@ -672,7 +718,7 @@
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email <span class="required">*</span></label>
@@ -683,12 +729,12 @@
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="company">Company</label>
                     <input type="text" id="company" name="company">
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="country">Country <span class="required">*</span></label>
@@ -699,19 +745,20 @@
                         <input type="text" id="state" name="state">
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="city">City of Residence</label>
                     <input type="text" id="city" name="city">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="occupation">What do you do?</label>
                     <input type="text" id="occupation" name="occupation" placeholder="Your profession or occupation">
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="relationship">What's your relationship with the celebrant? <span class="required">*</span></label>
+                    <label for="relationship">What's your relationship with the celebrant? <span
+                            class="required">*</span></label>
                     <select id="relationship" name="relationship" required>
                         <option value="">Please select...</option>
                         <option value="Friend">Friend</option>
@@ -725,7 +772,7 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label>What interests you most? <span class="required">*</span></label>
                     <div class="checkbox-group">
@@ -747,12 +794,13 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="questions">Any Questions or Special Requests</label>
-                    <textarea id="questions" name="questions" rows="4" placeholder="Please share any questions or special requests..."></textarea>
+                    <textarea id="questions" name="questions" rows="4"
+                        placeholder="Please share any questions or special requests..."></textarea>
                 </div>
-                
+
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Submit Registration</button>
                     <button type="button" class="btn btn-secondary" onclick="closeRegistrationForm()">Cancel</button>
@@ -990,6 +1038,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1137,7 +1186,7 @@
     <script src="script.js"></script>
     <script>
         // Ensure functions are globally accessible
-        window.openRegistrationForm = function() {
+        window.openRegistrationForm = function () {
             const modal = document.getElementById('registrationModal');
             if (modal) {
                 modal.style.display = 'flex';
@@ -1146,7 +1195,7 @@
             }
         };
 
-        window.closeRegistrationForm = function() {
+        window.closeRegistrationForm = function () {
             const modal = document.getElementById('registrationModal');
             if (modal) {
                 modal.style.display = 'none';
@@ -1155,7 +1204,7 @@
             }
         };
 
-        window.openTributeForm = function() {
+        window.openTributeForm = function () {
             const modal = document.getElementById('tributeModal');
             if (modal) {
                 modal.style.display = 'flex';
@@ -1164,7 +1213,7 @@
             }
         };
 
-        window.closeTributeForm = function() {
+        window.closeTributeForm = function () {
             const modal = document.getElementById('tributeModal');
             if (modal) {
                 modal.style.display = 'none';
@@ -1174,10 +1223,10 @@
         };
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const registrationModal = document.getElementById('registrationModal');
             const tributeModal = document.getElementById('tributeModal');
-            
+
             if (event.target === registrationModal) {
                 closeRegistrationForm();
             } else if (event.target === tributeModal) {
@@ -1186,7 +1235,7 @@
         };
 
         // Close modal on escape key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeRegistrationForm();
                 closeTributeForm();
@@ -1194,10 +1243,10 @@
         });
 
         // Ensure modals are hidden on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const registrationModal = document.getElementById('registrationModal');
             const tributeModal = document.getElementById('tributeModal');
-            
+
             if (registrationModal) {
                 registrationModal.style.display = 'none';
             }

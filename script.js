@@ -11,7 +11,7 @@ function scrollToSection(sectionId) {
             behavior: 'smooth'
         });
     }
-    
+
     // Close mobile menu if open
     const navMenu = document.getElementById('navMenu');
     const navToggle = document.getElementById('navToggle');
@@ -54,21 +54,21 @@ function openPartnerForm() {
 }
 
 // Close modal when clicking outside
-window.onclick = function(event) {
+window.onclick = function (event) {
     const tributeModal = document.getElementById('tributeModal');
     const registrationModal = document.getElementById('registrationModal');
-    
+
     if (event.target === tributeModal) {
         tributeModal.style.display = 'none';
     }
-    
+
     if (event.target === registrationModal) {
         closeRegistrationForm();
     }
 }
 
 // Navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile menu toggle
     if (navToggle) {
-        navToggle.addEventListener('click', function() {
+        navToggle.addEventListener('click', function () {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
         });
@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navbar scroll effect
     let lastScroll = 0;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const currentScroll = window.pageYOffset;
-        
+
         if (currentScroll > 100) {
             navbar.classList.add('scrolled');
         } else {
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const isClickInsideNav = navbar.contains(event.target);
         if (!isClickInsideNav && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
@@ -133,10 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Form submission handler
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const tributeForm = document.getElementById('tributeForm');
     if (tributeForm) {
-        tributeForm.addEventListener('submit', function(e) {
+        tributeForm.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your birthday tribute! Your message has been received.');
             closeTributeForm();
@@ -147,47 +147,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Registration form handler
     const registrationForm = document.getElementById('registrationForm');
     if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
+        registrationForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Validate interests checkboxes
             const interests = document.querySelectorAll('input[name="interests"]:checked');
             if (interests.length === 0) {
                 alert('Please select at least one interest.');
                 return;
             }
-            
+
             // Collect interests into a comma-separated string
             const interestsArray = Array.from(interests).map(cb => cb.value);
             const interestsValue = interestsArray.join(', ');
-            
+
             // Remove all checkbox inputs temporarily to avoid duplicate submission
             const checkboxes = document.querySelectorAll('input[name="interests"][type="checkbox"]');
             checkboxes.forEach(cb => {
                 cb.disabled = true;
             });
-            
+
             // Create a hidden input for interests
             let interestsInput = document.querySelector('input[name="interests"][type="hidden"]');
             if (interestsInput) {
                 interestsInput.remove();
             }
-            
+
             interestsInput = document.createElement('input');
             interestsInput.type = 'hidden';
             interestsInput.name = 'interests';
             interestsInput.value = interestsValue;
             registrationForm.appendChild(interestsInput);
-            
+
             // Show loading state
             const submitButton = registrationForm.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             submitButton.textContent = 'Submitting...';
             submitButton.disabled = true;
-            
+
             // Submit form to Formspree
             const formData = new FormData(registrationForm);
-            
+
             fetch('https://formspree.io/f/mwpgnjaj', {
                 method: 'POST',
                 body: formData,
@@ -195,70 +195,70 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Accept': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    alert('Thank you for your registration! We will be in touch soon.');
-                    registrationForm.reset();
-                    closeRegistrationForm();
-                } else {
-                    return response.json().then(data => {
-                        if (data.errors) {
-                            alert('There was an error submitting the form. Please try again.');
-                        } else {
-                            alert('Thank you for your registration!');
-                            registrationForm.reset();
-                            closeRegistrationForm();
-                        }
+                .then(response => {
+                    if (response.ok) {
+                        alert('Thank you for your registration! We will be in touch soon.');
+                        registrationForm.reset();
+                        closeRegistrationForm();
+                    } else {
+                        return response.json().then(data => {
+                            if (data.errors) {
+                                alert('There was an error submitting the form. Please try again.');
+                            } else {
+                                alert('Thank you for your registration!');
+                                registrationForm.reset();
+                                closeRegistrationForm();
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again later.');
+                })
+                .finally(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    // Re-enable checkboxes
+                    checkboxes.forEach(cb => {
+                        cb.disabled = false;
                     });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error submitting the form. Please try again later.');
-            })
-            .finally(() => {
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-                // Re-enable checkboxes
-                checkboxes.forEach(cb => {
-                    cb.disabled = false;
                 });
-            });
         });
     }
-    
+
     // Scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
             }
         });
     }, observerOptions);
-    
+
     // Observe all cards and content sections
     document.querySelectorAll('.tribute-card, .timeline-item, .quote-card, .wish-card, .speaker-card').forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
-    
+
     // Parallax effect for hero
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero-background');
         if (hero && scrolled < window.innerHeight) {
             hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
     });
-    
+
     // Add sparkle effect to buttons
     document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('mouseenter', function(e) {
+        button.addEventListener('mouseenter', function (e) {
             createSparkle(e.currentTarget);
         });
     });
@@ -272,26 +272,65 @@ function createSparkle(element) {
     sparkle.style.background = 'white';
     sparkle.style.borderRadius = '50%';
     sparkle.style.pointerEvents = 'none';
-    
+
     const rect = element.getBoundingClientRect();
     const x = Math.random() * rect.width;
     const y = Math.random() * rect.height;
-    
+
     sparkle.style.left = x + 'px';
     sparkle.style.top = y + 'px';
-    
+
     element.style.position = 'relative';
     element.appendChild(sparkle);
-    
+
     setTimeout(() => {
         sparkle.remove();
     }, 500);
 }
 
 // Keyboard navigation for accessibility
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         closeTributeForm();
         closeRegistrationForm();
+    }
+});
+// Birthday Countdown Logic
+function updateCountdown() {
+    const targetDate = new Date('January 28, 2026 00:00:00').getTime();
+
+    function update() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            document.getElementById('countdown').innerHTML = "<h3>The Celebration is Here!</h3>";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minsEl = document.getElementById('minutes');
+        const secsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+        if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+        if (minsEl) minsEl.innerText = minutes.toString().padStart(2, '0');
+        if (secsEl) secsEl.innerText = seconds.toString().padStart(2, '0');
+    }
+
+    update();
+    setInterval(update, 1000);
+}
+
+// Initialize countdown when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    if (document.getElementById('countdown')) {
+        updateCountdown();
     }
 });

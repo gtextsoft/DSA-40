@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praise Session - Dr. Stephen Akintayo's Birthday 2026</title>
-    <meta name="description" content="Join the Spiritual Celebration - Praise Session for Dr. Stephen Akintayo's Birthday">
+    <meta name="description"
+        content="Join the Spiritual Celebration - Praise Session for Dr. Stephen Akintayo's Birthday">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -40,6 +43,13 @@
     <section class="hero" style="min-height: 60vh;">
         <div class="hero-background"></div>
         <div class="hero-overlay"></div>
+        <div class="balloons-container">
+            <div class="balloon" style="left: 15%;"></div>
+            <div class="balloon" style="left: 35%;"></div>
+            <div class="balloon" style="left: 55%;"></div>
+            <div class="balloon" style="left: 75%;"></div>
+            <div class="balloon" style="left: 95%;"></div>
+        </div>
         <div class="container hero-content">
             <h1 class="hero-title">Join the Spiritual Celebration</h1>
             <p class="hero-subtitle">Praise Session - Dr. Stephen Akintayo's Birthday 2026</p>
@@ -56,7 +66,9 @@
             <div class="about-content">
                 <div class="intro-text">
                     <div class="highlight-bar"></div>
-                    <p>Kick off Dr. Stephen Akintayo's Birthday Celebration with an evening of worship, music, and thanksgiving. Experience inspirational ministrations, powerful prayers, and a time for reflection as we honor God and celebrate a life devoted to impact and excellence.</p>
+                    <p>Kick off Dr. Stephen Akintayo's Birthday Celebration with an evening of worship, music, and
+                        thanksgiving. Experience inspirational ministrations, powerful prayers, and a time for
+                        reflection as we honor God and celebrate a life devoted to impact and excellence.</p>
                 </div>
                 <div class="about-highlights">
                     <h3>Event Details</h3>
@@ -81,9 +93,11 @@
                 <p class="section-subtitle">JOIN US FOR THIS SPECIAL EVENING</p>
             </div>
             <div class="cta-content">
-                <p class="cta-intro-text">Don't miss this powerful evening of worship and celebration. Reserve your ticket today and be part of this spiritual experience.</p>
+                <p class="cta-intro-text">Don't miss this powerful evening of worship and celebration. Reserve your
+                    ticket today and be part of this spiritual experience.</p>
                 <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="openRegistrationForm()">Reserve Your Praise Session Ticket</button>
+                    <button class="btn btn-primary" onclick="openRegistrationForm()">Reserve Your Praise Session
+                        Ticket</button>
                     <a href="charity.html" class="btn btn-secondary">Support Our Charitable Initiatives</a>
                 </div>
                 <p class="cta-footer-note">Your participation helps us celebrate and give back to the community.</p>
@@ -95,7 +109,8 @@
     <footer class="footer">
         <div class="container">
             <p class="footer-text">Celebrate, honor, and give back with Dr. Stephen Akintayo.</p>
-            <p class="footer-tagline">Stay updated on event announcements, registrations, and charitable initiatives.</p>
+            <p class="footer-tagline">Stay updated on event announcements, registrations, and charitable initiatives.
+            </p>
             <div class="footer-social">
                 <a href="#" class="social-icon" aria-label="Follow us on Instagram" target="_blank"
                     rel="noopener noreferrer">
@@ -114,7 +129,8 @@
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>
-            <p style="margin-top: 2rem; color: var(--color-text-muted);">&copy; 2026 Dr. Stephen Akintayo Birthday Celebration</p>
+            <p style="margin-top: 2rem; color: var(--color-text-muted);">&copy; 2026 Dr. Stephen Akintayo Birthday
+                Celebration</p>
         </div>
     </footer>
 
@@ -138,7 +154,7 @@
                         <input type="text" id="lastName" name="lastName" required>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email <span class="required">*</span></label>
@@ -149,7 +165,7 @@
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="country">Country <span class="required">*</span></label>
@@ -160,12 +176,13 @@
                         <input type="text" id="city" name="city" required>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="questions">Any Questions or Special Requests</label>
-                    <textarea id="questions" name="questions" rows="4" placeholder="Please share any questions or special requests..."></textarea>
+                    <textarea id="questions" name="questions" rows="4"
+                        placeholder="Please share any questions or special requests..."></textarea>
                 </div>
-                
+
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Submit Registration</button>
                     <button type="button" class="btn btn-secondary" onclick="closeRegistrationForm()">Cancel</button>
@@ -398,6 +415,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -525,7 +543,7 @@
     <script src="script.js"></script>
     <script>
         // Ensure functions are globally accessible
-        window.openRegistrationForm = function() {
+        window.openRegistrationForm = function () {
             const modal = document.getElementById('registrationModal');
             if (modal) {
                 modal.style.display = 'flex';
@@ -534,7 +552,7 @@
             }
         };
 
-        window.closeRegistrationForm = function() {
+        window.closeRegistrationForm = function () {
             const modal = document.getElementById('registrationModal');
             if (modal) {
                 modal.style.display = 'none';
@@ -544,7 +562,7 @@
         };
 
         // Close modal when clicking outside
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('registrationModal');
             if (event.target === modal) {
                 closeRegistrationForm();
@@ -552,14 +570,14 @@
         };
 
         // Close modal on escape key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeRegistrationForm();
             }
         });
 
         // Ensure modal is hidden on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const modal = document.getElementById('registrationModal');
             if (modal) {
                 modal.style.display = 'none';
@@ -569,4 +587,3 @@
 </body>
 
 </html>
-
