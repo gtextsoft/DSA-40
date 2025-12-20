@@ -1,336 +1,139 @@
-// Smooth scroll to sections
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        const offset = 80; // Navbar height
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
+document.addEventListener('DOMContentLoaded', () => {
+    // Set target date for the countdown
+    const targetDate = new Date('January 28, 2026 16:00:00').getTime();
 
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+    // Update the countdown every second
+    const countdownElement = document.getElementById('countdown');
+    if (countdownElement) {
+        const countdownTimer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+            if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+            if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+            if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                countdownElement.innerHTML = "<h3>The Celebration Has Begun!</h3>";
+            }
+        }, 1000);
+    }
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
     }
 
-    // Close mobile menu if open
-    const navMenu = document.getElementById('navMenu');
-    const navToggle = document.getElementById('navToggle');
-    if (navMenu && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-    }
-}
-
-// Modal functions
-function openTributeForm() {
-    document.getElementById('tributeModal').style.display = 'block';
-}
-
-function closeTributeForm() {
-    document.getElementById('tributeModal').style.display = 'none';
-}
-
-function openRegistrationForm() {
-    const modal = document.getElementById('registrationModal');
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-}
-
-function closeRegistrationForm() {
-    const modal = document.getElementById('registrationModal');
-    if (modal) {
-        modal.style.display = 'none';
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
-    }
-}
-
-function openPartnerForm() {
-    // This can be linked to a real form or CRM
-    alert('Thank you for your interest in partnering! Please contact us at partnerships@example.com');
-}
-
-// Close modal when clicking outside
-window.onclick = function (event) {
-    const tributeModal = document.getElementById('tributeModal');
-    const registrationModal = document.getElementById('registrationModal');
-
-    if (event.target === tributeModal) {
-        tributeModal.style.display = 'none';
-    }
-
-    if (event.target === registrationModal) {
-        closeRegistrationForm();
-    }
-}
-
-// Navigation functionality
-document.addEventListener('DOMContentLoaded', function () {
+    // Mobile Menu Toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navbar = document.getElementById('navbar');
 
-    // Mobile menu toggle
-    if (navToggle) {
-        navToggle.addEventListener('click', function () {
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
-    }
 
-    // Close mobile menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        });
-    });
-
-    // Navbar scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', function () {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Update active nav link based on scroll position
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPosition = window.pageYOffset + 150;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                if (navLink) {
-                    navLink.classList.add('active');
-                }
-            }
-        });
-
-        lastScroll = currentScroll;
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function (event) {
-        const isClickInsideNav = navbar.contains(event.target);
-        if (!isClickInsideNav && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        }
-    });
-});
-
-// Form submission handler
-document.addEventListener('DOMContentLoaded', function () {
-    const tributeForm = document.getElementById('tributeForm');
-    if (tributeForm) {
-        tributeForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for your birthday tribute! Your message has been received.');
-            closeTributeForm();
-            tributeForm.reset();
-        });
-    }
-
-    // Registration form handler
-    const registrationForm = document.getElementById('registrationForm');
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Validate interests checkboxes
-            const interests = document.querySelectorAll('input[name="interests"]:checked');
-            if (interests.length === 0) {
-                alert('Please select at least one interest.');
-                return;
-            }
-
-            // Collect interests into a comma-separated string
-            const interestsArray = Array.from(interests).map(cb => cb.value);
-            const interestsValue = interestsArray.join(', ');
-
-            // Remove all checkbox inputs temporarily to avoid duplicate submission
-            const checkboxes = document.querySelectorAll('input[name="interests"][type="checkbox"]');
-            checkboxes.forEach(cb => {
-                cb.disabled = true;
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
             });
-
-            // Create a hidden input for interests
-            let interestsInput = document.querySelector('input[name="interests"][type="hidden"]');
-            if (interestsInput) {
-                interestsInput.remove();
-            }
-
-            interestsInput = document.createElement('input');
-            interestsInput.type = 'hidden';
-            interestsInput.name = 'interests';
-            interestsInput.value = interestsValue;
-            registrationForm.appendChild(interestsInput);
-
-            // Show loading state
-            const submitButton = registrationForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Submitting...';
-            submitButton.disabled = true;
-
-            // Submit form to Formspree
-            const formData = new FormData(registrationForm);
-
-            fetch('https://formspree.io/f/mwpgnjaj', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        alert('Thank you for your registration! We will be in touch soon.');
-                        registrationForm.reset();
-                        closeRegistrationForm();
-                    } else {
-                        return response.json().then(data => {
-                            if (data.errors) {
-                                alert('There was an error submitting the form. Please try again.');
-                            } else {
-                                alert('Thank you for your registration!');
-                                registrationForm.reset();
-                                closeRegistrationForm();
-                            }
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('There was an error submitting the form. Please try again later.');
-                })
-                .finally(() => {
-                    submitButton.textContent = originalText;
-                    submitButton.disabled = false;
-                    // Re-enable checkboxes
-                    checkboxes.forEach(cb => {
-                        cb.disabled = false;
-                    });
-                });
         });
     }
 
-    // Scroll animations
+    // Scroll Animations (Intersection Observer)
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.1
     };
 
-    const observer = new IntersectionObserver(function (entries) {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
+                entry.target.classList.add('animate-reveal');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe all cards and content sections
-    document.querySelectorAll('.tribute-card, .timeline-item, .quote-card, .wish-card, .speaker-card').forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
     });
 
-    // Parallax effect for hero
-    window.addEventListener('scroll', function () {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-background');
-        if (hero && scrolled < window.innerHeight) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    // Dynamic Balloon Generation
+    const balloonContainer = document.querySelector('.balloons-container');
+    if (balloonContainer) {
+        // Clear existing static balloons if any
+        balloonContainer.innerHTML = '';
+        for (let i = 0; i < 15; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = `${Math.random() * 100}%`;
+            balloon.style.animationDuration = `${10 + Math.random() * 10}s`;
+            balloon.style.animationDelay = `${Math.random() * 5}s`;
+            balloon.style.opacity = (0.2 + Math.random() * 0.3).toString();
+            balloon.style.backgroundColor = i % 2 === 0 ? 'var(--primary)' : 'var(--primary-light)';
+            balloonContainer.appendChild(balloon);
+        }
+    }
+
+    // Modal Global Handling
+    window.openRegistrationForm = function () {
+        const modal = document.getElementById('registrationModal');
+        if (modal) {
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeRegistrationForm = function () {
+        const modal = document.getElementById('registrationModal');
+        if (modal) {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+    };
+
+    window.openTributeForm = function () {
+        alert("The tribute form is being prepared. Thank you for your patience!");
+    };
+
+    // Close modal on click outside
+    window.addEventListener('click', (e) => {
+        const modal = document.getElementById('registrationModal');
+        if (e.target === modal) {
+            closeRegistrationForm();
         }
     });
-
-    // Add sparkle effect to buttons
-    document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('mouseenter', function (e) {
-            createSparkle(e.currentTarget);
-        });
-    });
 });
 
-function createSparkle(element) {
-    const sparkle = document.createElement('span');
-    sparkle.style.position = 'absolute';
-    sparkle.style.width = '5px';
-    sparkle.style.height = '5px';
-    sparkle.style.background = 'white';
-    sparkle.style.borderRadius = '50%';
-    sparkle.style.pointerEvents = 'none';
-
-    const rect = element.getBoundingClientRect();
-    const x = Math.random() * rect.width;
-    const y = Math.random() * rect.height;
-
-    sparkle.style.left = x + 'px';
-    sparkle.style.top = y + 'px';
-
-    element.style.position = 'relative';
-    element.appendChild(sparkle);
-
-    setTimeout(() => {
-        sparkle.remove();
-    }, 500);
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
 }
-
-// Keyboard navigation for accessibility
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        closeTributeForm();
-        closeRegistrationForm();
-    }
-});
-// Birthday Countdown Logic
-function updateCountdown() {
-    const targetDate = new Date('January 28, 2026 00:00:00').getTime();
-
-    function update() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-
-        if (distance < 0) {
-            document.getElementById('countdown').innerHTML = "<h3>The Celebration is Here!</h3>";
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minsEl = document.getElementById('minutes');
-        const secsEl = document.getElementById('seconds');
-
-        if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
-        if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
-        if (minsEl) minsEl.innerText = minutes.toString().padStart(2, '0');
-        if (secsEl) secsEl.innerText = seconds.toString().padStart(2, '0');
-    }
-
-    update();
-    setInterval(update, 1000);
-}
-
-// Initialize countdown when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    if (document.getElementById('countdown')) {
-        updateCountdown();
-    }
-});
