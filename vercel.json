@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/40books",
+      "destination": "https://40thbookpromo.vercel.app/",
+      "permanent": true
+    },
+    {
+      "source": "/40books/:path*",
+      "destination": "https://40thbookpromo.vercel.app/:path*",
+      "permanent": true
+    }
+  ]
+}
+

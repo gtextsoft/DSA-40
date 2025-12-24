@@ -1,0 +1,5 @@
+# Redirect /40books to Vercel promo site
+RewriteEngine On
+RewriteRule ^40books/?$ https://40thbookpromo.vercel.app/ [R=301,L]
+RewriteRule ^40books/(.*)$ https://40thbookpromo.vercel.app/$1 [R=301,L]
+
